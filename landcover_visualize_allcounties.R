@@ -31,7 +31,7 @@ county.all.shp <- county.all.shp[!as.character(county.all.shp$STATEFP)
                                  %in% states.rm, ]
 # sort county data by statefip then countyfip
 county.all.shp <- county.all.shp[order(county.all.shp$GEOID),]
-gpclibPermit()
+gpclibPermit() # the fortify command will not run without this line!
 # fortify county shape data to make into data.frame
 tract_geom <- fortify(model = county.all.shp, region="GEOID")
 # tract_geom$id <- tract_geom$GEOID
